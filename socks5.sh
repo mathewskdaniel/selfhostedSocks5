@@ -3,8 +3,7 @@
 # SOCKS5 Master Manager - Ultra-Light Edition
 # Description: A secure, lightweight, interactive SOCKS5 proxy manager.
 # Features: Non-root Auth, SSRF Protection, SHA-512, Low-RAM Auto-Swap
-# Supported OS: Debian 11/12/13, Ubuntu 20.04+
-# Author: @mathewskdaniel
+# Supported OS: Debian 11+, Ubuntu 20.04+
 # ==============================================================================
 
 set -uo pipefail
@@ -15,6 +14,13 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
+
+# ─── ROOT CHECK ───────────────────────────────────────────────────────────────
+if [[ "$EUID" -ne 0 ]]; then
+    echo -e "${RED}ERROR:${NC} This script requires root privileges to install packages and configure firewalls."
+    echo -e "Please run it again using sudo: ${YELLOW}sudo bash socks_manager.sh${NC}"
+    exit 1
+fi
 
 # ─── CONSTANTS ────────────────────────────────────────────────────────────────
 PASSWD_FILE="/etc/danted.passwd"
@@ -87,11 +93,8 @@ function add_user() {
         return
     fi
 
-    # Pure alphanumeric, 20 characters
     local PASSWORD
     PASSWORD=$(LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 20)
-
-    # Hash securely via stdin
     local HASHED
     HASHED=$(openssl passwd -6 -stdin <<< "$PASSWORD")
 
@@ -133,7 +136,6 @@ function install_socks() {
         exit 1
     fi
 
-    # Auto-Swap logic to prevent OOM kills on 64MB/128MB servers
     local SWAP_CREATED=0
     local TOTAL_RAM
     TOTAL_RAM=$(free -m | awk '/^Mem:/{print $2}')
@@ -154,7 +156,6 @@ function install_socks() {
     apt-get update -qq
     apt-get install -y libpam-pwdfile openssl curl wget
 
-    # Debian 13 missing package workaround
     if ! apt-get install -y dante-server 2>/dev/null; then
         echo -e "${YELLOW}[!] dante-server missing from repo. Pulling Debian fallback...${NC}"
         ARCH=$(dpkg --print-architecture)
@@ -172,7 +173,6 @@ auth    required pam_pwdfile.so nodelay pwdfile=$PASSWD_FILE
 account required pam_permit.so
 EOF
 
-    # Dante config with SSRF protections, purely to stderr (no log files)
     cat > "$CONF_FILE" <<EOF
 internal.protocol: ipv4
 internal: $IFACE port=$PORT
@@ -201,7 +201,6 @@ EOF
     systemctl enable danted
     systemctl restart danted || true
 
-    # Clean up temporary swap
     if [ "$SWAP_CREATED" -eq 1 ]; then
         swapoff /swapfile 2>/dev/null || true
         rm -f /swapfile
