@@ -4,7 +4,7 @@
 # Description: A secure, lightweight, interactive SOCKS5 proxy manager.
 # Features: Non-root Auth, SSRF Protection, SHA-512, Low-RAM Auto-Swap
 # Supported OS: Debian 11/12/13, Ubuntu 20.04+
-# Author: Your-GitHub-Username
+# Author: @mathewskdaniel
 # ==============================================================================
 
 set -uo pipefail
