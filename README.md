@@ -1,4 +1,4 @@
-# 🚀 Ultra-Light SOCKS5 Master Manager
+# 🚀 Ultra Light SOCKS5 Proxy generator script
 
 [![Bash](https://img.shields.io/badge/Language-Bash-4EAA25.svg)](#)
 [![OS](https://img.shields.io/badge/OS-Debian%20%7C%20Ubuntu-A81D33.svg)](#)
