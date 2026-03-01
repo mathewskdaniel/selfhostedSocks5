@@ -35,7 +35,7 @@ Launch the script at any time to access the persistent management menu:
 
 ## 🚀 Quick Install
 
-Run this command as `root` to download and launch the manager instantly:
+Run the below command to download and launch the manager instantly. Enter sudo pasword if prompted.
 
 ```bash
 wget -qO socks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/socks5.sh && sudo bash socks5.sh
