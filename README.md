@@ -37,14 +37,15 @@ Launch the script at any time to access the persistent management menu:
 
 Run the command below for your OS to download and launch the manager instantly. Enter your `sudo` password if prompted.
 
+### 🐧 For Debian & Ubuntu
 ```bash
-# 🐧 For Debian & Ubuntu:
-wget -qO socks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/socks5.sh && sudo bash socks5.sh
+wget -qO socks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/socks5.sh && sudo bash socks5.sh```
 
-# ⛰️ For Alpine Linux:
+### ⛰️ For Alpine Linux
+```bash
 wget -qO alpinesocks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/alpinesocks5.sh && sudo ash alpinesocks5.sh
 ```
-*(Note: If you are running Alpine as `root` in a minimal container without sudo, simply remove `sudo` from the command).*
+*(Note: If you are running as `root` in a minimal container without sudo, simply remove `sudo` from the commands).*
 
 ---
 
