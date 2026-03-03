@@ -49,8 +49,8 @@ wget -qO alpinesocks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfho
 ---
 
 ## 🖥️ Compatibility
-* **Debian:** 11 (Bullseye), 12 (Bookworm), 13 (Trixie)
-* **Ubuntu:** 20.04 LTS, 22.04 LTS, 24.04 LTS+
+* **Debian:** 11+
+* **Ubuntu:** 20.04+
 * **Alpine:** 3.x+
 * **Architecture:** AMD64 (x86_64) and ARM64 (aarch64)
 * **Virtualization:** KVM, OpenVZ, and LXC containers.
