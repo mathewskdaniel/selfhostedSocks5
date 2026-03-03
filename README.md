@@ -9,34 +9,6 @@ A lightning-fast, zero-bloat script to automatically install, secure, and manage
 
 Designed specifically for **extreme low-end VPS environments (64MB/128MB RAM)** and LXC containers, this script strips away unnecessary overhead, features built-in SSRF protection, and dynamically handles out-of-memory (OOM) errors during installation. Perfect for those looking to maximize the utility of cheap micro-VPS deals without crashing their nodes.
 
-🖥️ Compatibility
-
-    Debian: 11 (Bullseye), 12 (Bookworm), 13 (Trixie)
-
-    Ubuntu: 20.04 LTS, 22.04 LTS, 24.04 LTS+
-
-    Alpine: 3.x+
-
-    Architecture: AMD64 (x86_64) and ARM64 (aarch64)
-
-    Virtualization: KVM, OpenVZ, and LXC containers.
-
-  📸 Menu Preview
-╔══════════════════════════════════╗
-║      SOCKS5 Master Manager       ║
-╠══════════════════════════════════╣
-║ Status: Running                  ║
-║ IP:   198.51.100.45              ║
-║ Port: 44321                      ║
-╠══════════════════════════════════╣
-║ 1) List Users                    ║
-║ 2) Add New User                  ║
-║ 3) Remove a User                 ║
-║ 4) Change Global Port            ║
-║ 5) Full Uninstall                ║
-║ 6) Exit                          ║
-╚══════════════════════════════════╝
-
 ---
 
 ## ✨ Key Features
@@ -70,8 +42,42 @@ Run the command below for your OS to download and launch the manager instantly. 
 wget -qO socks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/socks5.sh && sudo bash socks5.sh
 
 # ⛰️ For Alpine Linux:
-wget -qO alpinesocks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/alpinesocks5.sh && ash alpinesocks5.sh
+wget -qO alpinesocks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/alpinesocks5.sh && sudo ash alpinesocks5.sh
+```
+*(Note: If you are running Alpine as `root` in a minimal container without sudo, simply remove `sudo` from the command).*
 
-⚠️ Disclaimer
+---
 
-This script generates irreversible password hashes. When you add a new proxy user, save the provided password immediately. It cannot be recovered from the server once the screen clears.
+## 🖥️ Compatibility
+* **Debian:** 11 (Bullseye), 12 (Bookworm), 13 (Trixie)
+* **Ubuntu:** 20.04 LTS, 22.04 LTS, 24.04 LTS+
+* **Alpine:** 3.x+
+* **Architecture:** AMD64 (x86_64) and ARM64 (aarch64)
+* **Virtualization:** KVM, OpenVZ, and LXC containers.
+
+---
+
+## 📸 Menu Preview
+
+```text
+╔══════════════════════════════════╗
+║      SOCKS5 Master Manager       ║
+╠══════════════════════════════════╣
+║ Status: Running                  ║
+║ IP:   192.168.69.42              ║
+║ Port: 44321                      ║
+╠══════════════════════════════════╣
+║ 1) List Users                    ║
+║ 2) Add New User                  ║
+║ 3) Remove a User                 ║
+║ 4) Change Global Port            ║
+║ 5) Full Uninstall                ║
+║ 6) Exit                          ║
+╚══════════════════════════════════╝
+```
+
+## ⚠️ Disclaimer
+This script generates irreversible password hashes. When you add a new proxy user, **save the provided password immediately**. It cannot be recovered from the server once the screen clears.
+
+## 📄 License
+MIT License. Feel free to fork, modify, and deploy across your fleets!
