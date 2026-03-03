@@ -39,13 +39,14 @@ Run the command below for your OS to download and launch the manager instantly. 
 
 ### 🐧 For Debian & Ubuntu
 ```bash
-wget -qO socks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/socks5.sh && sudo bash socks5.sh```
+wget -qO socks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/socks5.sh && sudo bash socks5.sh
+```
 
 ### ⛰️ For Alpine Linux
 ```bash
 wget -qO alpinesocks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfhostedSocks5/main/alpinesocks5.sh && sudo ash alpinesocks5.sh
 ```
-*(Note: If you are running as `root` in a minimal container without sudo, simply remove `sudo` from the commands).*
+*(Note: If you are running as `root` in a minimal container without sudo, simply remove `sudo` from the command).*
 
 ---
 
