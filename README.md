@@ -82,4 +82,4 @@ wget -qO alpinesocks5.sh https://raw.githubusercontent.com/mathewskdaniel/selfho
 This script generates irreversible password hashes. When you add a new proxy user, **save the provided password immediately**. It cannot be recovered from the server once the screen clears.
 
 ## 📄 License
-MIT License. Feel free to fork, modify, and deploy across your fleets!
+MIT License. Feel free to fork, modify, and deploy across your fleets.
